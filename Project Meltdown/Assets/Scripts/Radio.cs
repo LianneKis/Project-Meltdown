@@ -5,35 +5,46 @@ using UnityEngine;
 public class Radio : MonoBehaviour
 {
 
-    public AudioSource audioSource;
-    public bool isOn = true;
-    public AudioClip[] clips;
+    public AudioSource radioSource;
+    public bool isMuted = false;
+    public AudioClip[] radioSongs;
 
     private void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
     }
 
-    // Use this for initialization
     void Start()
     {
-        clips = Resources.LoadAll<AudioClip>("Music");
-        audioSource = GetComponent<AudioSource>();
-        audioSource.loop = false;
+        radioSongs = Resources.LoadAll<AudioClip>("Music/Radio");
+        radioSource = GetComponent<AudioSource>();
+        radioSource.loop = false;
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (isOn == false)
+        if ((!radioSource.isPlaying)&&(isMuted == false))
         {
+            radioSource.clip = radioSongs[Random.Range(0, radioSongs.Length)];
+            radioSource.Play();
+            isMuted = false;
+        }
+    }
 
-        }
-        if (!audioSource.isPlaying)
+    public void RadioPlayer(bool isMuted)
+    {
+        if (isMuted == true)
         {
-            audioSource.clip = clips[Random.Range(0, clips.Length)];
-            audioSource.Play();
+            radioSource.Pause();
+            isMuted = true;
         }
+
+    }
+
+    public void RadioChannel(string channelName)
+    {
+       
+
     }
 }   

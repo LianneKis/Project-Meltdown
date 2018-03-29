@@ -35,7 +35,7 @@ namespace RTS_Cam
         public float screenEdgeMovementSpeed = 3f; //spee with screen edge movement
         public float followingSpeed = 5f; //speed when following a target
         public float rotationSped = 3f;
-        public float panningSpeed = 10f;
+        public float panningSpeed = 20f;
         public float mouseRotationSpeed = 10f;
 
         #endregion
@@ -45,8 +45,8 @@ namespace RTS_Cam
         public bool autoHeight = true;
         public LayerMask groundMask = -1; //layermask of ground or other objects that affect height
 
-        public float maxHeight = 10f; //maximal height
-        public float minHeight = 15f; //minimnal height
+        public float maxHeight = 50f; //maximal height
+        public float minHeight = 1f; //minimnal height
         public float heightDampening = 5f; 
         public float keyboardZoomingSensitivity = 2f;
         public float scrollWheelZoomingSensitivity = 25f;
@@ -57,7 +57,7 @@ namespace RTS_Cam
 
         #region MapLimits
 
-        public bool limitMap = true;
+        public bool limitMap = false;
         public float limitX = 50f; //x limit of map
         public float limitY = 50f; //z limit of map
 
