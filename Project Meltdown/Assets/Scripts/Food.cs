@@ -15,6 +15,13 @@ public class Food : MonoBehaviour {
     int radiationLevels;
     long rationsAmount;
 
+
+
+    public void FoodType(string foodName, string description, float nutritionalValue, int expirationDate, bool isSpoiled)
+    {
+
+    }
+
     
 
 }
